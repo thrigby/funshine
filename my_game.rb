@@ -1,12 +1,12 @@
 require 'rubygems'
 require 'gosu'
-require 'player'
-require 'ball'
+require_relative 'player'
+require_relative 'ball'
 
 class MyGame < Gosu::Window
   def initialize
     super(400, 400, false) #false means don't take up the whole screen
-    @player1 = Player.new(self)
+    @player1 = Player.new(self, 50)
     @balls = 2.times.map {Ball.new(self)}
     @bg_image = Gosu::Image.new(self, "images/white.png", true)
     @running = true
@@ -33,7 +33,7 @@ class MyGame < Gosu::Window
       @balls.each {|ball| ball.update} 
 
       if @player1.hit_by? @balls
-        stop_game!
+#        stop_game!
       end
     else
       #the game is currently stopped

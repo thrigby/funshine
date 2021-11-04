@@ -1,6 +1,0 @@
-gem install gosu
-
-ruby my_game.rb
-
-arrow keys to move, escape to reset
-
